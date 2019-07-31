@@ -1,5 +1,32 @@
-<!--pages/index/index.wxml-->
-<text class="iconfont icon-shoucang1" >
-   
-</text>
-  
+<SearchInput></SearchInput>
+<!-- 轮播图开始 -->
+<view class="index_swiper">
+		<swiper indicator-dots circular autoplay>
+				<swiper-item wx:for="{{swiperList}}" wx:key="goods_id">
+						<navigator>
+								<image mode="widthFix" src="{{item.image_src}}" />
+						</navigator>
+				</swiper-item>
+		</swiper>
+</view>
+<!-- 道航分类 -->
+<view class="index_cate">
+		<navigator wx:for="{{navCateList}}" wx:key="name">
+				<image mode="widthFix" src="{{item.image_src}}" />
+		</navigator>
+</view>
+<!-- 楼层商品 -->
+<view class="index_floor">
+		<view class="floor_item" wx:for="{{floorList}}" wx:for-index="index1" wx:for-item="item1" wx:key="item">
+				<view class="floor_title">
+						<image class="" src="{{item1.floor_title.image_src}}" mode="widthFix" />
+				</view>
+				<view class="floor_list">
+						<navigator wx:for="{{item1.product_list}}" wx:for-index="index2" wx:for-item="item2" wx:key="neme">
+								<image src="{{item2.image_src}}" mode="{{index2===0?'widthFix':'scaleToFill'}}" />
+						</navigator>
+				</view>
+		</view>
+</view>
+
+	
