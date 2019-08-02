@@ -1,1 +1,7 @@
 /* pages/cart/index.wxss */
+.revice_warp .revice_btn_warp {
+  padding: 20rpx 0 ;
+}
+.revice_warp .revice_btn_warp button {
+  width: 50%;
+}

@@ -11,5 +11,5 @@ page{
     /* 1 定义变量 */
     --themeColor:red;
     color:#666;
-    font-size: 18rpx;
+    font-size: 28rpx;
 }

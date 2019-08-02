@@ -1,5 +1,6 @@
 import { request } from "../../request/index.js"
 import regeneratorRuntime from '../../lib/runtime/runtime';
+import {getStorageCate,setStorageCate} from "../../utils/storage.js"
 Page({
 
   /**
@@ -26,7 +27,8 @@ Page({
   onLoad: function () {
 
     // 1.获取缓存数据
-    const cates = wx.getStorageSync("cates");
+    // const cates = wx.getStorageSync("cates");
+    const cates = getStorageCate()
 
     // 2. 判断有没有缓存数据,没有就发请求
     if (!cates) {
@@ -61,8 +63,9 @@ Page({
     // 把接口的返回值赋值给我们的全局变量
     this.Cates = result
     // 把我们的数据存入到缓存中  ｛当前时间，数据｝
-    wx.setStorageSync("cates", { time: Date.now(), data: result });
-
+    // wx.setStorageSync("cates", { time: Date.now(), data: this.Cates });
+    setStorageCate({ time: Date.now(), data: this.Cates })
+   
     // console.log(result)
     // z左侧数据
     const leftMenuList = this.Cates.map(v => ({ cat_id: v.cat_id, cat_name: v.cat_name }))

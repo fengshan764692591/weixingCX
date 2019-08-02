@@ -1,2 +1,8 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<!-- pages/cart/index.wxml -->
+<!-- 没有收货地址就显示按钮 -->
+<view class="revice_warp">
+		<view class="revice_btn_warp" wx:if="{{!(address&&address.all)}}">
+				<button plain="{{true}}" type="primary" bindtap="handleChooseAddress">添加收货地址</button>
+		</view>
+		<view wx:else>{{address.all}}</view>
+</view>
