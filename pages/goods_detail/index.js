@@ -59,6 +59,7 @@ Page({
       // 2.2 第一次添加
       cart[this.GoodsObj.goods_id] = this.GoodsObj
       cart[this.GoodsObj.goods_id].num = 1
+      cart[this.GoodsObj.goods_id].checked = true
     }
     //3 把数据存储到本地
     // wx.setStorageSync("cart", cart);
