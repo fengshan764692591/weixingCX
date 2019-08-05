@@ -27,3 +27,16 @@ export const setStorageCate= (obj)=>{
 wx.setStorageSync("cate", obj);
       
 }
+
+// // 把用户信息 
+// export const getStorageCate= ()=>{
+//   return wx.getStorageSync("cate");
+    
+// }
+// /**
+// * @param {objec} obj 要填充的数据
+// */
+// export const setStorageCate= (obj)=>{
+// wx.setStorageSync("cate", obj);
+      
+// }

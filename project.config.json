@@ -22,7 +22,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.7",
-	"appid": "wx735436f2b3383bd2",
+	"appid": "wxfb52f2d7b2f6123a",
 	"projectname": "wxC02",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -80,8 +80,23 @@
 				},
 				{
 					"id": -1,
-					"name": "添加收货地址",
-					"pathName": "pages/cart/index",
+					"name": "支付页面",
+					"pathName": "pages/pay/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "授权页面",
+					"pathName": "pages/auth/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "个人中心",
+					"pathName": "pages/user/index",
+					"query": "",
 					"scene": null
 				}
 			]

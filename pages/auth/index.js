@@ -1,4 +1,6 @@
-// pages/auth/index.js
+import { request } from "../../request/index.js"
+import regeneratorRuntime from '../../lib/runtime/runtime';
+import { login } from '../../utils/asyncWx.js'// pages/auth/index.js
 Page({
 
   /**
@@ -8,59 +10,26 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+ async getuserinfo(e){
+  // console.log(e)
+  // 1 获取参数
+  const {encryptedData,rawData,iv,signature} = e.detail
+  // 2 登录后获取 code属性
+  const {code} = await login()
+  console.log(code)
+  // 2.5 把要提交的参数封装成一个对象
+  const postParams = {encryptedData,rawData,iv,signature,code}
+  // console.log(postParams)
+// 3 发送请求获取token
+const {token} = await request({url:"/users/wxlogin",method:"post",data:postParams})
+// console.log(res)
+// 4 把token存入到本地
+ wx:wx.setStorageSync("token", token);
+  //  5 从那里回拿去,1表示返回1层
+  wx.navigateBack({
+    delta: 1
+  });
+    
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
